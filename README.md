@@ -32,7 +32,7 @@ This project was developed with the following technologies:
 - [TypeScript](https://www.typescriptlang.org/)
 
 ## 💻 Project
-Happy is an application that connects people to institutional care homes to make many children's day happier 💜
+Happy is an app that connects people to institutional daycare centers to make many children's day happier 💜
 
 ## 🔖 Layout
 
