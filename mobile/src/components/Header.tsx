@@ -1,6 +1,6 @@
 import React from 'react';
-import { Feather } from '@expo/vector-icons';
 import { View, StyleSheet, Text } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { StackHeaderProps } from '@react-navigation/stack';
 
@@ -10,7 +10,7 @@ interface HeaderProps extends StackHeaderProps {
 }
 
 export default function Header({ showCancel = true, title, navigation }: HeaderProps) {
-  function handleCalcelCreateOrphanage() {
+  function handleCancelCreateOrphanage() {
     navigation.navigate('OrphanagesMap');
   }
 
@@ -24,7 +24,7 @@ export default function Header({ showCancel = true, title, navigation }: HeaderP
 
       { showCancel
         ? (
-          <BorderlessButton onPress={handleCalcelCreateOrphanage}>
+          <BorderlessButton onPress={handleCancelCreateOrphanage}>
             <Feather name="x" size={24} color="#FF669D" />
           </BorderlessButton>
         )
