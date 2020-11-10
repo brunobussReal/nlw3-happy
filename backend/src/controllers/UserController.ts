@@ -5,6 +5,9 @@ import * as Yup from "yup";
 import User from "../models/User";
 
 export default {
+  index(request: Request, response: Response) {
+    return response.json({ userId: request.userId });
+  },
   async create(request: Request, response: Response) {
     const repository = getRepository(User);
     const { email, name, password } = request.body;

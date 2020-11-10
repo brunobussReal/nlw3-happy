@@ -23,6 +23,9 @@ export default {
     const token = jwt.sign({ id: user.id }, `${process.env.BCRYPT_PASSWORD}`, {
       expiresIn: "1d",
     });
-    return response.json({ user: user.email, token });
+    return response.json({
+      user: { email: user.email, name: user.name },
+      token,
+    });
   },
 };

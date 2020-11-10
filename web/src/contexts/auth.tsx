@@ -3,30 +3,34 @@ import api from "../services/api";
 import history from "./history";
 
 interface AuthContextData {
-  user: User | null;
+  user: {
+    name: string;
+    email: string;
+  } | null;
   signIn(email: string, password: string): Promise<void>;
   signOut(): void;
   authenticated: boolean;
   loading: boolean;
-}
-interface User {
-  name: string;
-  email: string;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
-  const [user, setUser] = useState<null | User>(null);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     try {
       const token = localStorage.getItem("token");
+      const localUser = localStorage.getItem("user");
+
       if (token) {
-        api.defaults.headers.Authorization = `Bearer${JSON.parse(token)}`;
+        api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
         setAuthenticated(true);
+        if (localUser) {
+          setUser(JSON.parse(localUser));
+        }
       }
     } catch {}
     setLoading(false);
@@ -39,12 +43,16 @@ export const AuthProvider: React.FC = ({ children }) => {
     setUser(response.data.user);
     setAuthenticated(true);
     localStorage.setItem("token", JSON.stringify(response.data.token));
-    api.defaults.headers.Authorization = `Bearer${response.data.token}`;
+    localStorage.setItem("user", JSON.stringify(response.data.user));
+
+    api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
   }
   async function signOut() {
     setUser(null);
     setAuthenticated(false);
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
     api.defaults.headers.Authorization = undefined;
     history.push("/login");
   }
