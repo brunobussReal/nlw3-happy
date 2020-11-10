@@ -39,6 +39,67 @@ Happy is an app that connects people to institutional daycare centers to make ma
 - [Layout Web](https://www.figma.com/file/mDEbnoojksG4w8sOxmudh3/Happy-Web)
 - [Layout Mobile](https://www.figma.com/file/X27FfVxAgy9f5IFa7ONlph/Happy-Mobile)
 
+## :information_source: How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js][nodejs] + [Yarn][yarn] installed on your computer.
+
+From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/BrBuss/nlw3-happy
+```
+
+### Install API 
+```bash
+# Go into the repository from base directory
+$ cd nlw3-happy/backend
+
+# Install dependencies
+$ yarn install
+
+# Run Migrates
+$ yarn typeorm migration:run
+
+# Start server
+$ yarn dev
+
+# running on port 3333
+```
+
+### Install Front-end
+
+```bash
+# Go into the repository from base directory
+$ cd nlw3-happy/web
+
+# Install dependencies
+$ yarn install
+
+# Run
+$ yarn start
+
+# running on port 3000
+```
+
+ ### Install Mobile
+ 
+ In order to run mobile version in your phone, you need to install expo first. You can find it on [Google Play]( https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US&gl=US) or [App Store](https://apps.apple.com/pt/app/expo-client/id982107779), or you can simply run it on emulator.
+
+```bash
+# Go into the repository from base directory
+$ cd nlw3-happy/mobile
+
+# Install dependencies
+$ yarn install
+
+# Run
+$ yarn start
+
+# Expo page will open up, you scan the qrcode on terminal or expo page with your phone.
+
+``` 
+
 ## 🧠 Next steps
 
 - Restricted access using [bcrypt](https://www.npmjs.com/package/bcrypt)
@@ -54,5 +115,6 @@ Happy is an app that connects people to institutional daycare centers to make ma
 ## :memo: License
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
 
 
