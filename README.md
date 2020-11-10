@@ -41,7 +41,7 @@ Happy is an app that connects people to institutional daycare centers to make ma
 
 ## :information_source: How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js][nodejs] + [Yarn][yarn] installed on your computer.
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) + [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable) installed on your machine.
 
 From your command line:
 
