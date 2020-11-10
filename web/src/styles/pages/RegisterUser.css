@@ -1,27 +1,27 @@
-#authentication__page {
+#register__page {
   display: grid;
   height: 100vh;
   grid-template-columns: 2fr 1fr;
+  overflow: hidden;
 
   background: linear-gradient(329.54deg, #15b6d6 0%, #15d6d6 100%);
 }
 
-#authentication__page .hero {
+#register__page .hero {
   background: url("../../images/land-img.svg") no-repeat 80% center;
 }
 
-#authentication__page form {
+#register__page aside form {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  margin-top: 35px;
 }
 
-#authentication__page fieldset {
+#register__page aside form fieldset {
   border: 0;
 }
 
-#authentication__page fieldset legend {
+#register__page aside form fieldset legend {
   width: 100%;
 
   font-size: 32px;
@@ -34,8 +34,8 @@
   padding-bottom: 24px;
 }
 
-#authentication__page form .input-block input,
-#authentication__page form.input-block textarea {
+#register__page aside form .input-block input,
+#register__page aside form.input-block textarea {
   width: 100%;
   background: #f5f8fa;
   border: 1px solid #d3e2e5;
@@ -44,7 +44,7 @@
   color: #5c8599;
 }
 
-#authentication__page form .input-block + .input-block {
+#register__page aside form .input-block + .input-block {
   margin-top: 24px;
 }
 
@@ -60,7 +60,7 @@ form .input-block input {
   padding: 0 16px;
 }
 
-button.auth-button {
+form button.login-button {
   margin-top: 54px;
 
   width: 100%;
@@ -82,12 +82,12 @@ button.auth-button {
   transition: background-color 0.2s;
 }
 
-button.auth-button:hover {
+form button.login-button:hover {
   background: #15d6d6;
   color: #fff;
 }
 
-form .authFooter-linkContainer {
+form .footer-linkContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,7 +95,7 @@ form .authFooter-linkContainer {
   border: none;
 
   margin: auto;
-  margin-top: 44px;
+  margin-top: 24px;
 }
 
 .footer-link {

@@ -28,7 +28,8 @@
 #page-landing .content-wrapper main,
 #page-landing img,
 #page-landing .location,
-#page-landing .enter-app {
+#page-landing .enter-app,
+#page-landing .enter-login {
   margin: 16px;
 }
 
@@ -81,5 +82,26 @@
 }
 
 .content-wrapper .enter-app:hover {
+  background: #96feff;
+}
+
+.content-wrapper .enter-login {
+  position: absolute;
+  right: 0px;
+  bottom: 90px;
+
+  width: 80px;
+  height: 80px;
+  background: #ffd666;
+  border-radius: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s;
+}
+
+.content-wrapper .enter-login:hover {
   background: #96feff;
 }

@@ -5,26 +5,24 @@ import jwt from "jsonwebtoken";
 
 import User from "../models/User";
 
-class AuthController {
+export default {
   async auth(request: Request, response: Response) {
     const repository = getRepository(User);
     const { email, password } = request.body;
 
     const user = await repository.findOne({ where: { email } });
     if (!user) {
-      return response.sendStatus(409);
+      return response.status(409).send("user not");
     }
 
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword) {
-      return response.sendStatus(401);
+      return response.status(401).send("password invalida");
     }
 
     const token = jwt.sign({ id: user.id }, `${process.env.BCRYPT_PASSWORD}`, {
       expiresIn: "1d",
     });
-    return response.json({ user, token });
-  }
-}
-
-export default new AuthController();
+    return response.json({ user: user.email, token });
+  },
+};

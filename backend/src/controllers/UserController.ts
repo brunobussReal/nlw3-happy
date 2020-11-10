@@ -4,12 +4,13 @@ import * as Yup from "yup";
 
 import User from "../models/User";
 
-class UserController {
+export default {
   async create(request: Request, response: Response) {
     const repository = getRepository(User);
     const { email, name, password } = request.body;
 
     const data = { email, name, password };
+
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       email: Yup.string().email().required(),
@@ -19,15 +20,13 @@ class UserController {
     await schema.validate(data, {
       abortEarly: false,
     });
-    const alreadyExist = repository.find({ where: { email } });
+    const alreadyExist = await repository.findOne({ where: { email } });
     if (alreadyExist) {
       return response.sendStatus(409);
     }
 
-    const user = await repository.create({ email, name, password });
+    const user = repository.create({ email, name, password });
     await repository.save(user);
-    return response.json(user);
-  }
-}
-
-export default new UserController();
+    return response.status(201).json(user);
+  },
+};

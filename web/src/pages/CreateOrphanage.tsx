@@ -64,11 +64,11 @@ export default function CreateOrphanage() {
   }
 
   return (
-    <div id='page-create-orphanage'>
+    <div id="page-create-orphanage">
       <Sidebar />
 
       <main>
-        <form onSubmit={handleSubmit} className='create-orphanage-form'>
+        <form onSubmit={handleSubmit} className="create-orphanage-form">
           <fieldset>
             <legend>Dados</legend>
 
@@ -76,7 +76,8 @@ export default function CreateOrphanage() {
               center={[41.4125121, -8.5198418]}
               style={{ width: "100%", height: 280 }}
               zoom={15}
-              onClick={handleMapClick}>
+              onClick={handleMapClick}
+            >
               <TileLayer
                 url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
               />
@@ -89,42 +90,42 @@ export default function CreateOrphanage() {
               )}
             </Map>
 
-            <div className='input-block'>
-              <label htmlFor='name'>Nome</label>
+            <div className="input-block">
+              <label htmlFor="name">Nome</label>
               <input
-                id='name'
+                id="name"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
             </div>
 
-            <div className='input-block'>
-              <label htmlFor='about'>
+            <div className="input-block">
+              <label htmlFor="about">
                 Sobre <span>Máximo de 300 caracteres</span>
               </label>
               <textarea
-                id='name'
+                id="name"
                 maxLength={300}
                 value={about}
                 onChange={(event) => setAbout(event.target.value)}
               />
             </div>
 
-            <div className='input-block'>
-              <label htmlFor='images'>Fotos</label>
+            <div className="input-block">
+              <label htmlFor="images">Fotos</label>
 
-              <div className='images-container'>
+              <div className="images-container">
                 {previewImages.map((image) => (
                   <img key={image} src={image} alt={name} />
                 ))}
-                <label htmlFor='image[]' className='new-image'>
-                  <FiPlus size={24} color='#15b6d6' />
+                <label htmlFor="image[]" className="new-image">
+                  <FiPlus size={24} color="#15b6d6" />
                 </label>
                 <input
                   multiple
                   onChange={handleImageSelect}
-                  type='file'
-                  id='image[]'
+                  type="file"
+                  id="image[]"
                 />
               </div>
             </div>
@@ -133,45 +134,47 @@ export default function CreateOrphanage() {
           <fieldset>
             <legend>Visitação</legend>
 
-            <div className='input-block'>
-              <label htmlFor='instructions'>Instruções</label>
+            <div className="input-block">
+              <label htmlFor="instructions">Instruções</label>
               <textarea
-                id='instructions'
+                id="instructions"
                 value={instructions}
                 onChange={(event) => setInstructions(event.target.value)}
               />
             </div>
 
-            <div className='input-block'>
-              <label htmlFor='opening_hours'>Horário de funcionamento</label>
+            <div className="input-block">
+              <label htmlFor="opening_hours">Horário de funcionamento</label>
               <input
-                id='opening_hours'
+                id="opening_hours"
                 value={opening_hours}
                 onChange={(event) => setOpeningHours(event.target.value)}
               />
             </div>
 
-            <div className='input-block'>
-              <label htmlFor='open_on_weekends'>Atende fim de semana</label>
+            <div className="input-block">
+              <label htmlFor="open_on_weekends">Atende fim de semana</label>
 
-              <div className='button-select'>
+              <div className="button-select">
                 <button
                   onClick={() => setOpenOnWeekends(true)}
-                  type='button'
-                  className={open_on_weekends ? "active" : ""}>
+                  type="button"
+                  className={open_on_weekends ? "active" : ""}
+                >
                   Sim
                 </button>
                 <button
                   onClick={() => setOpenOnWeekends(false)}
-                  type='button'
-                  className={open_on_weekends ? "" : "active"}>
+                  type="button"
+                  className={open_on_weekends ? "" : "active"}
+                >
                   Não
                 </button>
               </div>
             </div>
           </fieldset>
 
-          <button className='confirm-button' type='submit'>
+          <button className="confirm-button" type="submit">
             Confirmar
           </button>
         </form>

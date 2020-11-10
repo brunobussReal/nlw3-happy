@@ -7,19 +7,23 @@ import { FiArrowRight } from "react-icons/fi";
 
 function Landing() {
   return (
-    <div id='page-landing'>
-      <div className='content-wrapper'>
-        <img src={logo} alt='Happy logo' />
+    <div id="page-landing">
+      <div className="content-wrapper">
+        <img src={logo} alt="Happy logo" />
         <main>
           <h1>Leve Felicidade para o mundo</h1>
           <p>Visite orfanatos e mude o dia de muitas crianças.</p>
         </main>
-        <div className='location'>
+        <div className="location">
           <strong>Portugal </strong>
           <span>Famalicão</span>
         </div>
-        <Link to='/app' className='enter-app'>
-          <FiArrowRight size={26} color='rgba(0, 0, 0, 0.6)' />
+        <Link to="/app" className="enter-app">
+          <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
+        </Link>
+
+        <Link to="/login" className="enter-login">
+          <p>Login</p>
         </Link>
       </div>
     </div>

@@ -15,3 +15,9 @@ button,
 textarea {
   font: 600 18px Nunito;
 }
+
+.form-error-span {
+  color: red;
+  font-size: 13px;
+  margin-left: 10px;
+}

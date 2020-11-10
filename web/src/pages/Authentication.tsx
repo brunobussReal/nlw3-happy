@@ -1,28 +1,45 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import AuthAsideModel from "../components/AuthAsideModel";
+import AuthContext from "../contexts/auth";
 
 import "../styles/pages/authentication-page.css";
 
 function Authentication() {
+  const history = useHistory();
+  const { signIn, signOut, authenticated } = useContext(AuthContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [authError, setAuthError] = useState("");
 
-  function handleSubmit(e: any) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
-    console.log({ email, password });
+    try {
+      await signIn(email, password);
+      setAuthError("");
+      history.push("/user");
+    } catch (error) {
+      switch (error.response.status) {
+        case 401:
+          setAuthError("Password inválida");
+          break;
+        case 409:
+          setAuthError("Usuario inexistente");
+      }
+      setPassword("");
+    }
+  }
+
+  function handleLogout() {
+    signOut();
   }
 
   return (
     <div id="authentication__page">
       <div className="hero"></div>
-      <aside>
-        <div className="svg-container">
-          <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-            <path d="M0.00,92.27 C216.83,192.92 304.30,8.39 500.00,109.03 L500.00,0.00 L0.00,0.00 Z" />
-          </svg>
-        </div>
-        <div className="authentication__container">
-          <h1>Leve Felicidade para o mundo</h1>
+      <AuthAsideModel>
+        {!authenticated ? (
           <form className="auththentication__form" onSubmit={handleSubmit}>
             <fieldset>
               <legend>Login</legend>
@@ -43,21 +60,48 @@ function Authentication() {
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                 />
+                {authError && (
+                  <span className="form-error-span">{authError}</span>
+                )}
               </div>
             </fieldset>
-            <button className="login-button" type="submit">
+            <button className="auth-button" type="submit">
               Login
             </button>
-            <div className="register-linkContainer">
+            <div className="authFooter-linkContainer">
               <div className="divider"></div>
               <span>Não possui conta ainda?</span>
-              <Link className="signup-link" to="/auth">
-                <span>Registre-se</span>
+              <Link className="footer-link" to="/register">
+                <span>Criar conta</span>
               </Link>
             </div>
           </form>
-        </div>
-      </aside>
+        ) : (
+          <div>
+            <fieldset>
+              <legend>Login</legend>
+              <div className="logout-container">
+                <h2>Parece que já tem a sessão iniciada</h2>
+                <button
+                  className="auth-button"
+                  type="submit"
+                  onClick={handleLogout}
+                >
+                  Fazer Logout?
+                </button>
+
+                <button
+                  className="auth-button"
+                  type="submit"
+                  onClick={() => history.push("/")}
+                >
+                  Continuar Sessão
+                </button>
+              </div>
+            </fieldset>
+          </div>
+        )}
+      </AuthAsideModel>
     </div>
   );
 }
