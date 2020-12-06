@@ -47,7 +47,7 @@ From your command line:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/BrBuss/nlw3-happy
+$ git clone https://github.com/brunobussReal/nlw3-happy
 ```
 
 ### Install API 
