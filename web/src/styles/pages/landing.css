@@ -81,6 +81,24 @@
   transition: background-color 0.2s;
 }
 
+.content-wrapper .enter-login {
+  position: absolute;
+  right: 0px;
+  bottom: 90px;
+
+  width: 80px;
+  height: 80px;
+  background: #ffd666;
+  border-radius: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
 .content-wrapper .enter-app:hover {
   background: #96feff;
 }

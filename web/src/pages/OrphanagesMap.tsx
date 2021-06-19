@@ -31,9 +31,11 @@ function OrphanagesMap() {
     <div id='page-map'>
       <aside>
         <header>
-          <img src={mapMarker} alt='Happy' />
-          <h2>Escolha um orfanato no mapa</h2>
-          <p>Muitas crianças estão esperando a sua visita (:</p>
+          <Link to="/">
+            <img src={mapMarker} alt='Happy' />
+          </Link>
+          <h2>Select an orphanage on the map</h2>
+          <p>Many children are waiting for your visit (:</p>
         </header>
         <footer>
           <strong>Portugal</strong>
