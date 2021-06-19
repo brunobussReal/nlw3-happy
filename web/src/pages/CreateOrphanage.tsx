@@ -56,8 +56,6 @@ export default function CreateOrphanage() {
     } catch (error) {
       console.log("error")
     }
-
-
   };
 
   function handleMapClick(event: LeafletMouseEvent) {
@@ -102,6 +100,7 @@ export default function CreateOrphanage() {
                 id="name"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
+                required
               />
             </div>
 
@@ -114,6 +113,8 @@ export default function CreateOrphanage() {
                 maxLength={300}
                 value={about}
                 onChange={(event) => setAbout(event.target.value)}
+                required
+
               />
             </div>
 
@@ -132,6 +133,7 @@ export default function CreateOrphanage() {
                   onChange={handleImageSelect}
                   type="file"
                   id="image[]"
+
                 />
               </div>
             </div>
@@ -146,6 +148,7 @@ export default function CreateOrphanage() {
                 id="instructions"
                 value={instructions}
                 onChange={(event) => setInstructions(event.target.value)}
+                required
               />
             </div>
 
@@ -155,6 +158,7 @@ export default function CreateOrphanage() {
                 id="opening_hours"
                 value={opening_hours}
                 onChange={(event) => setOpeningHours(event.target.value)}
+                required
               />
             </div>
 

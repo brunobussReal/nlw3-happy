@@ -67,9 +67,13 @@ export default {
       open_on_weekends: Yup.boolean().required(),
       images: Yup.array(Yup.object().shape({ path: Yup.string().required() })),
     });
-    await schema.validate(data, {
-      abortEarly: false, //return errors only after full validation check
-    });
+    try {
+      await schema.validate(data, {
+        abortEarly: false, //return errors only after full validation check
+      });
+    } catch (error) {
+      console.log(error)
+    }
     //pre-creates orphanage in database
     const orphanage = orphanagesRepository.create(data);
     //save orphanage in database
