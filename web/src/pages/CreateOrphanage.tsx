@@ -48,10 +48,16 @@ export default function CreateOrphanage() {
     images.forEach((image) => {
       data.append("images", image);
     });
+    try {
+      console.log(data)
+      await api.post("orphanages", data);
+      alert("success");
+      history.replace("/app");
+    } catch (error) {
+      console.log("error")
+    }
 
-    await api.post("orphanages", data);
-    alert("success");
-    history.replace("/app");
+
   };
 
   function handleMapClick(event: LeafletMouseEvent) {
