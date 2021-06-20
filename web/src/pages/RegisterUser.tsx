@@ -12,13 +12,14 @@ function RegisterUser() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [registerError, setRegisterError] = useState("");
+  const [passwordError, setPasswordError] = useState(false)
 
   const handleRegisterUser = async (event: FormEvent) => {
     event.preventDefault();
-
     if (password !== confirmPassword) {
       setConfirmPassword("");
-      return alert("As passwords estão diferentes");
+      setPasswordError(true)
+      return alert("Password are different");
     }
     const data = { name, email, password };
     try {
@@ -26,9 +27,9 @@ function RegisterUser() {
       history.replace("/");
     } catch (error) {
       if (error.response.status === 409) {
-        setRegisterError("Email já registrado, experimente iniciar sessão");
+        setRegisterError("Email already registered, please try to log in");
       } else if (error.response.data.errors.password) {
-        setRegisterError("Password deve conter no minimo 8 caracteres");
+        setRegisterError("Password must have at least 8 characters");
       }
     }
   };
@@ -39,9 +40,9 @@ function RegisterUser() {
       <AuthAsideModel className="register__asideModel">
         <form className="register__form" onSubmit={handleRegisterUser}>
           <fieldset>
-            <legend>Criar Conta</legend>
+            <legend>Create Account</legend>
             <div className="input-block">
-              <label htmlFor="name">Nome</label>
+              <label htmlFor="name">Name</label>
               <input
                 id="name"
                 type="text"
@@ -69,7 +70,7 @@ function RegisterUser() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="confirm-password">Confirme a Password</label>
+              <label htmlFor="confirm-password">Confirm Password</label>
               <input
                 id="confirm-password"
                 type="password"
@@ -82,11 +83,11 @@ function RegisterUser() {
             )}
           </fieldset>
           <button className="login-button" type="submit">
-            Criar Conta
+            Register
           </button>
           <div className="footer-linkContainer">
             <div className="divider"></div>
-            <span>Já possui conta?</span>
+            <span>Already have an account?</span>
             <Link className="footer-link" to="/login">
               <span>Login</span>
             </Link>
