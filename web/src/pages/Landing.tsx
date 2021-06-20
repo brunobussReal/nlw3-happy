@@ -11,8 +11,8 @@ function Landing() {
       <div className="content-wrapper">
         <img src={logo} alt="Happy logo" />
         <main>
-          <h1>Leve Felicidade para o mundo</h1>
-          <p>Visite orfanatos e mude o dia de muitas crianças.</p>
+          <h1>Bring Happines to the World</h1>
+          <p>Visit orphanages and change many children's day.</p>
         </main>
         <div className="location">
           <strong>Portugal </strong>

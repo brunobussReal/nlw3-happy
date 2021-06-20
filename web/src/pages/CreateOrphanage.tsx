@@ -95,7 +95,7 @@ export default function CreateOrphanage() {
             </Map>
 
             <div className="input-block">
-              <label htmlFor="name">Nome</label>
+              <label htmlFor="name">Name</label>
               <input
                 id="name"
                 value={name}
@@ -106,7 +106,7 @@ export default function CreateOrphanage() {
 
             <div className="input-block">
               <label htmlFor="about">
-                Sobre <span>Máximo de 300 caracteres</span>
+                About <span>300 characters at maximum</span>
               </label>
               <textarea
                 id="name"
@@ -119,7 +119,7 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="images">Fotos</label>
+              <label htmlFor="images">Images</label>
 
               <div className="images-container">
                 {previewImages.map((image) => (
@@ -140,7 +140,7 @@ export default function CreateOrphanage() {
           </fieldset>
 
           <fieldset>
-            <legend>Visitação</legend>
+            <legend>Visitation</legend>
 
             <div className="input-block">
               <label htmlFor="instructions">Instruções</label>
@@ -153,7 +153,7 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="opening_hours">Horário de funcionamento</label>
+              <label htmlFor="opening_hours">Opening Hours</label>
               <input
                 id="opening_hours"
                 value={opening_hours}
@@ -163,7 +163,7 @@ export default function CreateOrphanage() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="open_on_weekends">Atende fim de semana</label>
+              <label htmlFor="open_on_weekends">Open on Weekends</label>
 
               <div className="button-select">
                 <button
@@ -171,21 +171,21 @@ export default function CreateOrphanage() {
                   type="button"
                   className={open_on_weekends ? "active" : ""}
                 >
-                  Sim
+                  Yes
                 </button>
                 <button
                   onClick={() => setOpenOnWeekends(false)}
                   type="button"
                   className={open_on_weekends ? "" : "active"}
                 >
-                  Não
+                  No
                 </button>
               </div>
             </div>
           </fieldset>
 
           <button className="confirm-button" type="submit">
-            Confirmar
+            Confirm
           </button>
         </form>
       </main>

@@ -22,7 +22,7 @@ function Authentication() {
     } catch (error) {
       switch (error.response.status) {
         case 401:
-          setAuthError("Password inválida");
+          setAuthError("User or Password incorrect");
           break;
         case 409:
           setAuthError("Usuario inexistente");
@@ -40,7 +40,7 @@ function Authentication() {
       <div className="hero"></div>
       <AuthAsideModel>
         {!authenticated ? (
-          <form className="auththentication__form" onSubmit={handleSubmit}>
+          <form className="authentication__form" onSubmit={handleSubmit}>
             <fieldset>
               <legend>Login</legend>
               <div className="input-block">
@@ -70,9 +70,9 @@ function Authentication() {
             </button>
             <div className="authFooter-linkContainer">
               <div className="divider"></div>
-              <span>Não possui conta ainda?</span>
+              <span>Don't have an account yet?</span>
               <Link className="footer-link" to="/register">
-                <span>Criar conta</span>
+                <span>Create account</span>
               </Link>
             </div>
           </form>
@@ -81,13 +81,13 @@ function Authentication() {
             <fieldset>
               <legend>Login</legend>
               <div className="logout-container">
-                <h2>Parece que já tem a sessão iniciada</h2>
+                <h2>Seems like your already logged in</h2>
                 <button
                   className="auth-button"
                   type="submit"
                   onClick={handleLogout}
                 >
-                  Fazer Logout?
+                  Logout?
                 </button>
 
                 <button
@@ -95,7 +95,7 @@ function Authentication() {
                   type="submit"
                   onClick={() => history.push("/")}
                 >
-                  Continuar Sessão
+                  Continue Session
                 </button>
               </div>
             </fieldset>

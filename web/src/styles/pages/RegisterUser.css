@@ -1,8 +1,7 @@
 #register__page {
   display: grid;
-  height: 100vh;
-  grid-template-columns: 2fr 1fr;
-  overflow: hidden;
+  min-height: 100vh;
+  grid-template-columns: auto 600px;
 
   background: linear-gradient(329.54deg, #15b6d6 0%, #15d6d6 100%);
 }
